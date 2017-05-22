@@ -38,7 +38,8 @@ class UsersController < ApplicationController
     end
     @user = User.find(params[:id])
     @count =@user.reviews.count 
-    @reviews =@user.reviews
+    # @reviews =@user.reviews
+    @reviews = @user.reviews.includes(:book)  # because we are using `review.book`, eager load all reviews' books
   end
 
 private

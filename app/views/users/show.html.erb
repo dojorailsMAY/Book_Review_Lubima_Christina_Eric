@@ -8,6 +8,7 @@
         <h3>Name:<%=@user.first_name%>  <%=@user.last_name%></h3>
         <h3>Email:<%=@user.email%></h3>
         <h3>Total Reviews:<%=@count%></h3><br>
+        <!-- Could have done @reviews.length -->
         <h4>Posted reviews on the following books:</h4>
             <% @reviews.each do |review| %>
                 <a href="/books/<%=review.book.id %>"><%= review.book.title %></a><br>

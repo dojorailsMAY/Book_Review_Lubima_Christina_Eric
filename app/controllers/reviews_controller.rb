@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
     @book = Book.find(params[:book_id])
     @user = User.find(session[:user_id])
     @review = @user.reviews.create(review: params[:review], rating: params[:rating], book:@book)
-    redirect_to controller: 'books', action: 'show', id: params[:book_id]
+    redirect_to controller: 'books', action: 'show', id: params[:book_id]  # "/books/#{@book.id}"
   end
 
   def destroy

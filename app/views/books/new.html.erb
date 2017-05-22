@@ -10,12 +10,14 @@
             <input type="text" name="title"><br><br>
             Author:<br>
             <select name="list_authors"><br>
+                        <!-- name="author_id" -->
                 <option selected="selected" disabled>Select from existing authors</option>
                     <% @authors.each do |author| %>
                         <option value="<%= author.id %>"><%= author.name %></option>
                     <% end %>
             </select><br><br>
             Or add a new author:<br>
+                            <!-- name="author_name" -->
             <input type="text" name="author"><br><br>
             Review:<br>
             <input type="text" name="review"><br><br>

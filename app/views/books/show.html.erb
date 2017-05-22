@@ -13,7 +13,8 @@
                     Rating: <%= review.rating%> <br>
                     <a href="/users/<%=review.user.id%>"> <%=review.user.username%> </a> says: <%= review.review%><br><br>
                     Posted on  <%=review.created_at%> <br>
-                    <% if review.user.username == session[:username] %>
+                        <!-- never compare by `username` when you could compare by `id` -->
+                    <% if review.user.id == session[:id] %>
                         <a href="/reviews/<%=review.id%>" data-method = "delete">Delete this Review</a>
                     <% end %>
                 </p>
