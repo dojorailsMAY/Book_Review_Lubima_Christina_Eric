@@ -1,0 +1,29 @@
+
+<div id="add_book_logout">
+        <h5>Welcome,<%= session[:username] %>!</h5>
+        <a id="add_link" href="/books/new">Add Book and Review</a>
+        <a href="/users/logout">Logout</a>
+    </div>
+    <div id="main">
+        <div id="recent_books">
+            <h4>Recent Books Reviews:</h4>
+            <% @reviews.each do |review| %>
+                <a href="/books/<%=review.book.id %>">
+                    <%= review.book.title %>
+                </a><br><br>
+                Rating: <%= review.rating %>
+                <p>
+                    <a href="/users/<%=review.user.id%>"><%= review.user.username %></a> says: <%= review.review %><br><br>
+                    Posted on <%= review.created_at %>
+                </p>
+            <% end %><br>
+            
+        </div>
+        <div id="all_books">
+            <h4>Other Books with Reviews:</h4>
+            <% @other_reviews.each do |other| %>
+                <a href="/books/<%=other.id %>"><%= other.title %></a><br><br>
+            <% end %> 
+            
+        </div>
+    </div>

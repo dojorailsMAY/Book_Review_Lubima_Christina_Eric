@@ -1,0 +1,43 @@
+<div id="add_book_logout">
+        <h3> <%=@book.title %></h3><br>
+        Author: <%=@book.author.name%>
+        <a id="add_link" href="/books">Home</a>
+        <a href="/users/logout">Logout</a>
+    </div>
+    <div id="main">
+        <div id="recent_books">
+            <h4>Reviews:</h4> <!--Reviews for The Selected Book -->
+            <% @reviews.each do |review| %>
+                --------------------------------
+                <p>
+                    Rating: <%= review.rating%> <br>
+                    <a href="/users/<%=review.user.id%>"> <%=review.user.username%> </a> says: <%= review.review%><br><br>
+                    Posted on  <%=review.created_at%> <br>
+                    <% if review.user.username == session[:username] %>
+                        <a href="/reviews/<%=review.id%>" data-method = "delete">Delete this Review</a>
+                    <% end %>
+                </p>
+            <% end %>
+        </div>
+        <div id="all_books">
+            <h5>Add a Review:</h5> 
+            <form action="/books/<%=@book.id%>/reviews" method='POST'>
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="text" name="review"><br>
+                <p style="font-size:14px">
+                    Rating:
+                    <select name="rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>    
+                    stars.
+                </p> 
+                <input type="submit" value="Submit Review">
+            </form>
+                
+        </div>
+    </div>
+    

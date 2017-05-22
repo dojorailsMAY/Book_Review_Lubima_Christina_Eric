@@ -1,0 +1,35 @@
+// Place all the styles related to the Books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+    color:darkslategray;
+    font-family: monospace;   
+}
+#add_book_logout a{
+    font-size: 12px;
+    display: inline-block;
+    
+}
+#add_book_logout h5,#recent_books,#all_books{
+    display: inline-block;
+}
+#add_link{
+    margin-left: 350px;
+}
+#add_book_logout,#main{
+    margin-left: 50px;
+}
+#all_books{
+    margin-left: 200px;
+    vertical-align: top;
+    border: groove;
+    border-color: grey;
+    padding: 15px;
+    height: 150px;
+    overflow: scroll;
+}
+
+#recent_books p{
+    font-style: italic;
+    font-size: 12px;
+}
